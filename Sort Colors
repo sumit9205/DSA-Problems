@@ -1,2 +1,62 @@
 
 //start writing the code here..................
+
+
+/*ALGORITHM -
+Take three-pointers, namely - low, mid, high.
+We use low and mid pointers at the start, and the high pointer will point at the end of the given array.
+CASES :
+If array [mid] =0, then swap array [mid] with array [low] and increment both pointers once.
+If array [mid] = 1, then no swapping is required. Increment mid pointer once.
+If array [mid] = 2, then we swap array [mid] with array [high] and decrement the high pointer once.*/
+
+
+
+class Solution {
+    public void sortColors(int[] nums) {
+            
+        int lo = 0;
+        int mid = 0;
+        int hi = nums.length-1;
+        
+        
+        while(mid<=hi){
+            System.out.println(mid);
+            if(nums[mid]==1){
+                mid++;
+                System.out.println("one");
+            }
+            
+           else if(nums[mid]==0){
+                //swap mid and lo
+                int temp1 = nums[lo];
+                nums[lo] = nums[mid];
+                nums[mid] = temp1;
+                lo++;
+                mid++;
+                System.out.println("zero");
+            }
+            
+           else if(nums[mid]==2){
+                 int temp2 = nums[hi];
+                nums[hi] = nums[mid];
+                nums[mid] = temp2;
+                hi--;
+                               System.out.println("two");
+            }
+            
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
