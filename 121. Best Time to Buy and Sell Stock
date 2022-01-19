@@ -1,1 +1,24 @@
 //start writing.........
+class Solution {
+    public int maxProfit(int[] prices) {
+        int min = prices[0];
+        
+        int maxProfit = 0;
+        
+        for(int day = 0 ;  day < prices.length ; day++){
+            //update min if eligible
+            if(prices[day]<min){
+                min = prices[day];
+                System.out.println("min updated");
+                System.out.println(min);
+            }
+            //else calculate max profit
+            else if(prices[day]-min>maxProfit){
+                maxProfit = prices[day]-min;
+                System.out.println("max updated");
+                System.out.println(maxProfit);
+            }
+        }
+        return maxProfit;
+    }
+}
