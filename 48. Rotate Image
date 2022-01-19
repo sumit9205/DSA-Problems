@@ -1,0 +1,5 @@
+class Solution {
+    public void rotate(int[][] matrix) {
+   
+        //use layer method written in right tab
+}
