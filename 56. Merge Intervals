@@ -1,0 +1,21 @@
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        ArrayList<int[]> ansAL = new ArrayList<>();
+        //sorting an array of array using labdas
+        Arrays.sort(intervals,(a,b)->Integer.compare(a[0],b[0]));
+        
+        int[] merge = intervals[0];
+        for(int i = 0 ;  i < intervals.length ; i++){
+            if(merge[1]>=intervals[i][0]){
+                merge[1] = intervals[i][1]>merge[1] ? intervals[i][1] : merge[1]; 
+            }
+            else{
+                ansAL.add(merge);
+                merge = intervals[i];
+            }
+        }
+        ansAL.add(merge);
+        //way to convert an AL to an array
+      return  ansAL.toArray(new int[ansAL.size()][2]);
+    }
+}
