@@ -1,5 +1,67 @@
+//////////////////////////////////TRANSPOSE & ROW REVERSE METHOD////////////////////////////////////
+class Solution {
+public void rotate(int[][] matrix) {
+
+int len = matrix.length;
+//make transpose
+int i = 0;
+while(i<len){ int j=0; while(j<len){ if(i>j){
+    // swap
+    int temp = matrix[i][j];
+    matrix[i][j] = matrix[j][i];
+    matrix[j][i] = temp;
+    }
+    j++;
+    }
+
+    i++;
+    }
+
+    //print transpose
+    for(int row = 0 ; row < len ; row++){ 
+        for(int col=0 ; col < len ; col++){
+            System.out.print(matrix[row][col]+" ");
+            }
+            System.out.println();
+        }
+        //do row reversal on each row
+        
+        int row = 0;
+        
+        while(row<len){
+            for(int col = 0 ; col < len/2  ; col++){
+                  int temp = matrix[row][col];
+                      matrix[row][col] = matrix[row][len-1-col];
+                     matrix[row][len-1-col] = temp;
+            }
+            row++;
+        }
+        
+    }
+}
+
+
+/////////////////////////////////LAYER SOLUTION//////////////////////////////////
 class Solution {
     public void rotate(int[][] matrix) {
    
         //use layer method written in right tab
+        
+        int len= matrix.length;
+        
+        for(int layer = 0 ; layer < len/2 ; layer++){
+            
+            for(int i = layer ; i < len-1-layer ; i++){
+                int temp = matrix[layer][i];
+                
+                
+                matrix[layer][i] = matrix[len-1-i][layer];
+                matrix[len-1-i][layer] = matrix[len-1-layer][len-1-i];
+                matrix[len-1-layer][len-1-i] = matrix[i][len-1-layer];
+                matrix[i][len-1-layer] = temp;
+                
+            }
+            
+        }
+    }
 }
