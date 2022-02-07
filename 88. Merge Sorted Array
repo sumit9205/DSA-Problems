@@ -1,1 +1,51 @@
 
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        
+        if(nums2.length==0){
+            return ;        
+        }
+        int i = 0;
+        int j = 0;
+        
+        while(i<m){
+            System.out.println("hello");
+            //compare nums1[i] to nums2[i]
+            //swap if applicable
+            if(nums1[i]>nums2[j]){
+                int temp = nums1[i];
+                nums1[i] = nums2[j];
+                nums2[j] = temp;
+                System.out.println("swap");
+                compareSort(nums2);
+            }
+        
+           
+            
+            //sort nums[2]
+            
+            System.out.println(i+"i");
+            i++;
+        }
+        while(i<m+n){
+                        System.out.println(i+"i");
+            nums1[i]=nums2[j];
+            i++;
+            j++;
+        }
+        
+    }
+    
+    public void compareSort(int[] arr){
+        int len = arr.length;
+        int i = 0;
+        while(i<len-1){
+            if(arr[i]>arr[i+1]){
+              int temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+            i++;
+        }
+    }
+}
