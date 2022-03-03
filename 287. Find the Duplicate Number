@@ -1,0 +1,33 @@
+//using binary serach and count approach . written on leetcode solutions
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+        
+        int lo = 1;
+        int hi = nums.length-1 ;
+        int duplicate = -1;
+        
+        while(lo<=hi){
+            int mid = (lo+hi)/2;
+
+            //find count till mid
+            int count = 0;
+            for(int num : nums){
+                if(num<=mid){
+                    count++;
+                }
+            }
+            
+            if(count > mid){
+                hi = mid-1; 
+                duplicate = mid;
+            }
+            else{
+                lo = mid+1;
+            }
+      
+        }
+        return duplicate;        
+    }
+}
+
