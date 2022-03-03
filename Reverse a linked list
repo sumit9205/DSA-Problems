@@ -1,0 +1,29 @@
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+        if(head == null || head.next == null){ return head;}
+        
+        ListNode back = head;
+        ListNode curr = head.next;
+        ListNode ahead = curr.next;
+        back.next = null;
+        while(curr!=null){
+            curr.next = back;
+            
+            // System.out.println("back "+back.val);
+            // System.out.println("curr "+curr.val);
+            // System.out.println("ahead "+ahead.val);
+            
+            //move ahead
+            back = curr;
+            curr = ahead;
+            
+            if(ahead != null){
+                ahead = ahead.next;
+            }
+        }
+        
+        return back;
+        
+    }
+}
